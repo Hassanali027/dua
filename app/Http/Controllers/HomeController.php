@@ -112,7 +112,7 @@ class HomeController extends Controller
         $meta_title = $category->meta_title ?: $category->name;
         $meta_description = $category->meta_description ?: '';
         
-        return view('Category-page', compact('category', 'products', 'meta_title', 'meta_description'));
+        return view('category-page', compact('category', 'products', 'meta_title', 'meta_description'));
     }
 
     public function dynamicSlug(Request $request, $slug)
@@ -216,7 +216,7 @@ class HomeController extends Controller
         $meta_title = isset($category->meta_title) && $category->meta_title ? $category->meta_title : $category->name;
         $meta_description = isset($category->meta_description) ? $category->meta_description : '';
 
-        return view('Category-page', compact('category', 'products', 'meta_title', 'meta_description'));
+        return view('category-page', compact('category', 'products', 'meta_title', 'meta_description'));
     }
 
     public function product($id)
