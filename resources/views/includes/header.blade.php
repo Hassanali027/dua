@@ -21,6 +21,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ asset('images/dua-mehrama-favicon.png') }}">
+    <style>
+        html:not(.dm-page-ready) body {
+            visibility: hidden;
+        }
+    </style>
+    <noscript>
+        <style>
+            body {
+                visibility: visible;
+            }
+        </style>
+    </noscript>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            document.documentElement.classList.add('dm-page-ready');
+        });
+    </script>
 </head>
 <body>
 
