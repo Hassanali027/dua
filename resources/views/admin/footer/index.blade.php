@@ -58,8 +58,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="footer_github">GitHub / Other Link</label>
-                    <input type="text" id="footer_github" name="footer_github" class="form-control" value="{{ \App\Models\Setting::get('footer_github', '#') }}">
+                    <label for="footer_tiktok">TikTok Link</label>
+                    <input type="text" id="footer_tiktok" name="footer_tiktok" class="form-control" value="{{ \App\Models\Setting::get('footer_tiktok', '#') }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="footer_pinterest">Pinterest Link</label>
+                    <input type="text" id="footer_pinterest" name="footer_pinterest" class="form-control" value="{{ \App\Models\Setting::get('footer_pinterest', '#') }}">
                 </div>
             </div>
         </div>
@@ -96,6 +101,7 @@
         </div>
     </form>
 </div>
+
 @endsection
 
 @section('styles')

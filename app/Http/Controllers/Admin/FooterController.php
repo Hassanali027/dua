@@ -21,15 +21,15 @@ class FooterController extends Controller
             'footer_twitter' => 'nullable|string',
             'footer_facebook' => 'nullable|string',
             'footer_instagram' => 'nullable|string',
-            'footer_github' => 'nullable|string',
+            'footer_tiktok' => 'nullable|string',
+            'footer_pinterest' => 'nullable|string',
             'footer_address' => 'nullable|string',
             'footer_email' => 'nullable|string',
             'footer_phone' => 'nullable|string',
             'footer_timing' => 'nullable|string',
         ]);
-
         $settings = $request->only([
-            'footer_text', 'footer_twitter', 'footer_facebook', 'footer_instagram', 'footer_github',
+            'footer_text', 'footer_twitter', 'footer_facebook', 'footer_instagram', 'footer_tiktok', 'footer_pinterest',
             'footer_address', 'footer_email', 'footer_phone', 'footer_timing'
         ]);
 

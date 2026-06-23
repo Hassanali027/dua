@@ -221,7 +221,10 @@
     }
 
     function updateCartQty(key, newQty) {
-        if (newQty < 1) return;
+        if (newQty < 1) {
+            removeFromCart(key);
+            return;
+        }
         
         fetch('{{ route('cart.update') }}', {
             method: 'POST',

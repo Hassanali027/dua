@@ -295,8 +295,7 @@
 <script>
     function updateMainCartQty(btnElement, key, newQty) {
         if (newQty < 1) {
-            btnElement.disabled = false;
-            btnElement.nextElementSibling ? btnElement.nextElementSibling.value = 1 : btnElement.previousElementSibling.value = 1;
+            removeMainCartItem(key);
             return;
         }
         

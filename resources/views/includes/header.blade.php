@@ -46,7 +46,7 @@
         </svg>
         
         <!-- Brand Logo -->
-        <a href="/" class="brand-logo"><img src="{{ asset('images/dua-mehrama-logo.png') }}" alt="Dua Mehrama" style="height: 65px; object-fit: contain;"></a>
+        <a href="{{ url('/') }}" class="brand-logo"><img src="{{ asset('images/dua-mehrama-logo.png') }}" alt="Dua Mehrama" style="height: 65px; object-fit: contain;"></a>
     </div>
     
     <div class="nav-center desktop-nav">
@@ -57,7 +57,7 @@
         
         @foreach($topLinks as $link)
             <div class="nav-item-dropdown">
-                <a href="{{ $link['url'] }}" class="top-nav-link">{{ $link['label'] }}</a>
+                <a href="{{ str_starts_with($link['url'], '/') ? url($link['url']) : $link['url'] }}" class="top-nav-link">{{ $link['label'] }}</a>
                 
                 @php
                     $category = null;
@@ -74,20 +74,20 @@
                     @foreach($category->children as $child)
                         @if($child->children->count() > 0)
                             <div class="nested-dropdown">
-                                <a href="/category/{{ $child->full_slug() }}" class="mega-menu-item">
+                                <a href="{{ url('/category/' . $child->full_slug()) }}" class="mega-menu-item">
                                     <span>{{ $child->name }}</span>
                                     <svg class="nested-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
                                 </a>
                                 <div class="nested-menu">
                                     @foreach($child->children as $grandchild)
-                                        <a href="/category/{{ $grandchild->full_slug() }}" class="mega-menu-item">
+                                        <a href="{{ url('/category/' . $grandchild->full_slug()) }}" class="mega-menu-item">
                                             <span>{{ $grandchild->name }}</span>
                                         </a>
                                     @endforeach
                                 </div>
                             </div>
                         @else
-                            <a href="/category/{{ $child->full_slug() }}" class="mega-menu-item">
+                            <a href="{{ url('/category/' . $child->full_slug()) }}" class="mega-menu-item">
                                 <span>{{ $child->name }}</span>
                             </a>
                         @endif
@@ -154,7 +154,7 @@
 <!-- Sidebar Menu -->
 <div class="sidebar" id="sidebarMenu">
     <div class="sidebar-header">
-        <a href="/" class="sidebar-logo"><img src="{{ asset('images/dua-mehrama-logo.png') }}" alt="Dua Mehrama" style="height: 24px; object-fit: contain;"></a>
+        <a href="{{ url('/') }}" class="sidebar-logo"><img src="{{ asset('images/dua-mehrama-logo.png') }}" alt="Dua Mehrama" style="height: 24px; object-fit: contain;"></a>
         <button class="close-btn" id="closeSidebar">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
@@ -164,13 +164,13 @@
     
     <div class="sidebar-top-nav">
         @foreach($topLinks as $link)
-            <a href="{{ $link['url'] }}" class="sidebar-top-link">{{ $link['label'] }}</a>
+            <a href="{{ str_starts_with($link['url'], '/') ? url($link['url']) : $link['url'] }}" class="sidebar-top-link">{{ $link['label'] }}</a>
         @endforeach
     </div>
     
     <div class="sidebar-menu">
         @foreach($mainLinks as $link)
-            <a href="{{ $link['url'] }}" class="sidebar-menu-item">{{ $link['label'] }}</a>
+            <a href="{{ str_starts_with($link['url'], '/') ? url($link['url']) : $link['url'] }}" class="sidebar-menu-item">{{ $link['label'] }}</a>
         @endforeach
     </div>
 </div>
